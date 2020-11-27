@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:background="#E6D646"
     android:id="@+id/container"
-    tools:context=".ui.slideshow.SlideshowFragment">
+    tools:context=".ui.Home.HomeFragment">
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="379dp"
         android:layout_height="239dp"
-        android:src="@drawable/makeupca"
+        android:src="@drawable/geniecapstonelogo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -16,5 +16,17 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_gallery" />
+        <item
+            android:id="@+id/nav_quote"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Get Quote" />
+        <item
+            android:id="@+id/nav_joinus"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Join Us" />
+        <item
+            android:id="@+id/nav_contactus"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Contact Us" />
     </group>
 </menu>

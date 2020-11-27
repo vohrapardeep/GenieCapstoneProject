@@ -32,13 +32,30 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.test.ui.slideshow.SlideshowFragment"
+        android:name="com.example.test.ui.Home.HomeFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 
-<fragment
-android:id="@+id/nav_home"
-android:name="com.example.test.ui.Products.ProductFragment"
-android:label="@string/menu_home"
-tools:layout="@layout/fragment_home" />
+    <fragment
+    android:id="@+id/nav_home"
+    android:name="com.example.test.ui.Services.ServicesFragment"
+    android:label="@string/menu_home"
+    tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_quote"
+        android:name="com.example.test.ui.Quote.Quote"
+        android:label="Get Quote"
+        tools:layout="@layout/quote"/>
+    <fragment
+        android:id="@+id/nav_contactus"
+        android:name="com.example.test.ui.ContactUs.ContactUs"
+        android:label="Get Quote"
+        tools:layout="@layout/quote"/>
+
+    <fragment
+        android:id="@+id/nav_joinus"
+        android:name="com.example.test.ui.JoinUs.Jobs"
+        android:label="Join Us"
+        tools:layout="@layout/joinus"/>
 </navigation>

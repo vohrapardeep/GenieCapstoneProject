@@ -55,7 +55,7 @@ public class Signup extends AppCompatActivity {
                 String pho = etPhonenumber.getText().toString();
 
                 if (!emailcheck(em)) {
-                    etName.setError("Invalid email");
+                    etEmailid.setError("Invalid email");
                 }
                 if (!passwordCheck(pass)) {
                     etPassword.setError("Invalid password");
@@ -74,7 +74,7 @@ public class Signup extends AppCompatActivity {
                 if (isNullOrBlank(n) || isNullOrBlank(em) || isNullOrBlank(pass) || isNullOrBlank(cpass) || isNullOrBlank(pho)) {
                     Toast.makeText(Signup.this, "No field should be empty", Toast.LENGTH_SHORT).show();
                 }
-                if (emailcheck(em) && passwordCheck(pass) && passwordCheck(cpass) && pass.equals(cpass)) {
+                if (emailcheck(em) && passwordCheck(pass) && passwordCheck(cpass) && pass.equals(cpass) && phoneCheck(pho)) {
                     if (db.checkAlreadyExist(em)) {
 
                         if (db.insertdata(n, em, pass, pho)) {

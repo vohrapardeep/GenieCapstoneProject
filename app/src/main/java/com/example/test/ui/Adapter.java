@@ -10,15 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.test.R;
-import com.example.test.ui.Products.ProductViewModel;
+import com.example.test.ui.Services.ServicesViewModel;
 
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
-    List<ProductViewModel> itemList1;
+    List<ServicesViewModel> itemList1;
     private OnmyClickListener mOnClickListener;
-    public Adapter(List<ProductViewModel> itemList, OnmyClickListener onmyClickListener){
+    public Adapter(List<ServicesViewModel> itemList, OnmyClickListener onmyClickListener){
         this.itemList1 = itemList;
         this.mOnClickListener = onmyClickListener;
     }
