@@ -67,7 +67,7 @@ public class ContactUs extends Fragment {
                 }
                 if(isNullOrBlank(message1))
                 {
-                    message.setError("Enter Your Query");
+                    message.setError("Enter Your Query!");
                 }
                 if(!emailPatterncheck(email1))
                 {
