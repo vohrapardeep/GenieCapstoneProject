@@ -55,7 +55,7 @@ public class ContactUs extends Fragment {
 
                 if(isNullOrBlank(name))
                 {
-                    fullname.setError("Name Required!");
+                    fullname.setError("Name Required !");
                 }
                 if(isNullOrBlank(email1))
                 {
