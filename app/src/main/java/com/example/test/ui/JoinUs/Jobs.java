@@ -121,7 +121,9 @@ public class Jobs extends Fragment {
 
                         helperUpload helperUpload = new helperUpload(etResume.getText().toString(), url.toString());
                         databaseReference.child(databaseReference.push().getKey()).setValue(helperUpload);
-                        Toast.makeText(getContext(), "File Uploaded Successfully", Toast.LENGTH_LONG);
+                        Toast.makeText(getActivity(), "File Uploaded Successfully", Toast.LENGTH_LONG);
+                        progressDialog.dismiss();
+
 
                     }
                 }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -130,7 +132,7 @@ public class Jobs extends Fragment {
 
 
                 double progresspercent = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                progressDialog.setMessage("uploaded:" + (int) progresspercent + "%");
+                progressDialog.setMessage("Uploaded: " + (int) progresspercent + "%");
 
             }
         });

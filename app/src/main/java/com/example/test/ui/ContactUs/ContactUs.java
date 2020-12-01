@@ -1,28 +1,30 @@
 package com.example.test.ui.ContactUs;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
-
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.Toast;
 import com.example.test.R;
-import com.example.test.ui.Home.HomeModel;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ContactUs extends Fragment {
+
+    public ContactUs(){}
 
 
     EditText fullname,email,contact,message;
     Button send;
-    public String mailmsg;
+
+    FirebaseDatabase rootToDatabase;
+    DatabaseReference reference;
+//    public String mailmsg;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -43,14 +45,67 @@ public class ContactUs extends Fragment {
             @Override
             public void onClick(View v) {
 
-                mailmsg= message.getText().toString() +"\n Contact Number: " + contact.getText().toString() + "\n Email Id:"+ email.getText().toString();
+                rootToDatabase= FirebaseDatabase.getInstance();
+                reference= rootToDatabase.getReference("ContactUs");
 
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:Supadhyay3131@conestogac.on.ca"));
-                intent.putExtra(Intent.EXTRA_SUBJECT,"Contact Us Inquiry");
-                intent.putExtra(Intent.EXTRA_TEXT,mailmsg);
-                startActivity(intent);
+                String name = fullname.getText().toString();
+                String email1 = email.getText().toString();
+                String contact1 = contact.getText().toString();
+                String message1 = message.getText().toString();
+
+                if(isNullOrBlank(name))
+                {
+                    fullname.setError("Name Required!");
+                }
+                if(isNullOrBlank(email1))
+                {
+                    email.setError("Email Required!");
+                }
+                if(isNullOrBlank(contact1))
+                {
+                    contact.setError("Contact Required!");
+                }
+                if(isNullOrBlank(message1))
+                {
+                    message.setError("Enter Your Query");
+                }
+                if(!emailPatterncheck(email1))
+                {
+                    email.setError("Invalid Email ID!");
+                }
+                else {
+
+                    ContactHelper helper1 = new ContactHelper(name, email1, contact1, message1);
+                    reference.child(contact1).setValue(helper1);
+
+                    Toast.makeText(getActivity(), "Thanks, We will get back to you shortly!", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+
+
+
+//
+//                mailmsg= message.getText().toString() +"\n Contact Number: " + contact.getText().toString() + "\n Email Id:"+ email.getText().toString();
+//
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:Supadhyay3131@conestogac.on.ca"));
+//                intent.putExtra(Intent.EXTRA_SUBJECT,"Contact Us Inquiry");
+//                intent.putExtra(Intent.EXTRA_TEXT,mailmsg);
+//                startActivity(intent);
             }
         });
         return root;
+    }
+    boolean isNullOrBlank(String s) {
+        return (s == null || s.trim().equals(""));
+    }
+
+    private boolean emailPatterncheck(String email) {
+        if (email == null) {
+            return false;
+        } else {
+            return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        }
     }
 }
