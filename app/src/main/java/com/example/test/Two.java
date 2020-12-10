@@ -9,8 +9,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.test.ui.checkout.Checkout;
+
 public class Two extends AppCompatActivity {
-    TextView txtviewTitle,txtviewPrice;
+    TextView txtviewTitle;
     ImageView img1;
     Button btnCheckout;
     @Override
@@ -18,7 +20,6 @@ public class Two extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two);
         txtviewTitle = findViewById(R.id.txtviewTitle);
-        txtviewPrice = findViewById(R.id.txtviewPrice);
         img1 = findViewById(R.id.img1);
         btnCheckout = findViewById(R.id.btnCheckout);
 
@@ -26,18 +27,17 @@ public class Two extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         String title=bundle.getString("title2");
         int img= bundle.getInt("img2");
-        String price = bundle.getString("price2");
+
 
         //Passing values received to respective resources
         txtviewTitle.setText(title);
         img1.setImageResource(img);
-        txtviewPrice.setText("$"+ price);
 
         //checkout button click listener
         btnCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),Checkout.class);
+                Intent i = new Intent(getApplicationContext(), Checkout.class);
                 startActivity(i);
             }
         });

@@ -6,29 +6,11 @@
     app:startDestination="@+id/nav_slideshow">
 
 
-<!--        <action-->
-<!--            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"-->
-<!--            app:destination="@id/nav_home_second" />-->
-<!--    </fragment>-->
-<!--    <fragment-->
-<!--        android:id="@+id/nav_home_second"-->
-<!--        android:name="com.example.test.ui.Product.HomeSecondFragment"-->
-<!--        android:label="@string/home_second"-->
-<!--        tools:layout="@layout/fragment_home_second">-->
-<!--        <action-->
-<!--            android:id="@+id/action_HomeSecondFragment_to_HomeFragment"-->
-<!--            app:destination="@id/nav_home" />-->
-
-<!--        <argument-->
-<!--            android:name="myArg"-->
-<!--            app:argType="string" />-->
-<!--    </fragment>-->
-
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.test.ui.Gallery.GalleryFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/activity_checkout" />
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -39,7 +21,7 @@
     <fragment
     android:id="@+id/nav_home"
     android:name="com.example.test.ui.Services.ServicesFragment"
-    android:label="@string/menu_home"
+    android:label="Services"
     tools:layout="@layout/fragment_home" />
 
     <fragment
@@ -50,7 +32,7 @@
     <fragment
         android:id="@+id/nav_contactus"
         android:name="com.example.test.ui.ContactUs.ContactUs"
-        android:label="Get Quote"
+        android:label="Contact"
         tools:layout="@layout/quote"/>
 
     <fragment
@@ -58,4 +40,11 @@
         android:name="com.example.test.ui.JoinUs.Jobs"
         android:label="Join Us"
         tools:layout="@layout/joinus"/>
+
+    <activity
+        android:id="@+id/feedback"
+        android:name="com.example.test.ui.Feedback.Feedback"
+        android:label="Feedback"
+        tools:layout="@layout/activity_feedback"/>
+
 </navigation>

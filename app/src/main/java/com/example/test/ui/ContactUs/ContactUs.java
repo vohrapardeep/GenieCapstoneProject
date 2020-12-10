@@ -83,16 +83,6 @@ public class ContactUs extends Fragment {
 
 
 
-
-
-
-//
-//                mailmsg= message.getText().toString() +"\n Contact Number: " + contact.getText().toString() + "\n Email Id:"+ email.getText().toString();
-//
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:Supadhyay3131@conestogac.on.ca"));
-//                intent.putExtra(Intent.EXTRA_SUBJECT,"Contact Us Inquiry");
-//                intent.putExtra(Intent.EXTRA_TEXT,mailmsg);
-//                startActivity(intent);
             }
         });
         return root;

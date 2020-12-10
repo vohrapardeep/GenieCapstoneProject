@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.example.test.ui.Location.UserLocation;
+
 public class Animation extends AppCompatActivity {
 
 
@@ -31,7 +33,7 @@ public class Animation extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(Animation.this,Login.class);
+                Intent intent=new Intent(Animation.this, UserLocation.class);
                 startActivity(intent);
                 finish();
             }

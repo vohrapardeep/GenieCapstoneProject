@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.test.Five;
 import com.example.test.Four;
-import com.example.test.One;
+import com.example.test.ui.ServiceOne.One;
 import com.example.test.R;
 import com.example.test.Three;
 import com.example.test.Two;
@@ -37,24 +37,19 @@ public class ServicesFragment extends Fragment implements Adapter.OnmyClickListe
         recyclerView = root.findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
         recyclerView.setAdapter(new Adapter(initData(),this));
-
-
-
-
 
         return root;
     }
 
     private List<ServicesViewModel> initData() {
         itemList= new ArrayList<>();
-        itemList.add(new ServicesViewModel(R.drawable.elec,"Electrician","1999"));
-        itemList.add(new ServicesViewModel(R.drawable.plumber,"Plumber","150"));
-        itemList.add(new ServicesViewModel(R.drawable.prod1,"Beautician","250"));
-        itemList.add(new ServicesViewModel(R.drawable.health,"Health Instructor","400"));
-        itemList.add(new ServicesViewModel(R.drawable.constr,"Construction Worker","50"));
-   return itemList;
+        itemList.add(new ServicesViewModel(R.drawable.elec,"Electrician"));
+        itemList.add(new ServicesViewModel(R.drawable.plumber,"Plumber"));
+        itemList.add(new ServicesViewModel(R.drawable.prod1,"Beautician"));
+        itemList.add(new ServicesViewModel(R.drawable.health,"Health Instructor"));
+        itemList.add(new ServicesViewModel(R.drawable.constr,"Construction Worker"));
+         return itemList;
     }
 
 
@@ -67,37 +62,32 @@ public class ServicesFragment extends Fragment implements Adapter.OnmyClickListe
             Intent i = new Intent(getActivity(), One.class);
             i.putExtra("title1",""+ itemList.get(position).getName());
             i.putExtra("img1",R.drawable.elec);
-            i.putExtra("price1",itemList.get(position).getPrice());
-            startActivity(i);
+             startActivity(i);
         }
         if(position==1){
             Intent i = new Intent(getActivity(), Two.class);
             i.putExtra("title2",""+ itemList.get(position).getName());
             i.putExtra("img2",R.drawable.plumber);
-            i.putExtra("price2",itemList.get(position).getPrice());
-            startActivity(i);
+           startActivity(i);
         }
 
         if(position==2){
             Intent i = new Intent(getActivity(), Three.class);
             i.putExtra("title3",""+itemList.get(position).getName());
             i.putExtra("img3",R.drawable.prod1);
-            i.putExtra("price3",itemList.get(position).getPrice());
-            startActivity(i);
+           startActivity(i);
         }
         if(position==3){
             Intent i = new Intent(getActivity(), Four.class);
             i.putExtra("title4",""+itemList.get(position).getName());
             i.putExtra("img4",R.drawable.health);
-            i.putExtra("price4",itemList.get(position).getPrice());
             startActivity(i);
         }
         if(position==4){
             Intent i = new Intent(getActivity(), Five.class);
             i.putExtra("title5",""+itemList.get(position).getName());
             i.putExtra("img5",R.drawable.constr);
-            i.putExtra("price5",itemList.get(position).getPrice());
-            startActivity(i);
+           startActivity(i);
         }
     }
 }
