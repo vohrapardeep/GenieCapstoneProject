@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LoginSignup.iml" filepath="$PROJECT_DIR$/LoginSignup.iml" group="LoginSignup" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="LoginSignup/app" />
+      <module fileurl="file://$PROJECT_DIR$/capstone.iml" filepath="$PROJECT_DIR$/capstone.iml" group="capstone" />
+      <module fileurl="file://$PROJECT_DIR$/app/capstone-app.iml" filepath="$PROJECT_DIR$/app/capstone-app.iml" group="capstone/app" />
     </modules>
   </component>
 </project>
