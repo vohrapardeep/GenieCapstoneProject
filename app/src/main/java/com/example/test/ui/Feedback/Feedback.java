@@ -228,5 +228,6 @@ public class Feedback extends AppCompatActivity {
         } else {
             return Patterns.EMAIL_ADDRESS.matcher(email).matches();
         }
+        
     }
 }
