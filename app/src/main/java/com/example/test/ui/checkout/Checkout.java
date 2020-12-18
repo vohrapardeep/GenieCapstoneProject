@@ -104,10 +104,6 @@ dataAdapter.setDropDownViewResource(R.layout.spinner_color);
                     editTextNumber.setError("Phone number Required !");
                 }
 
-                if(!emailPatterncheck(email)){
-                    editTextEmail.setError("Invalid Email, Retry!");
-                }
-
 
                 else{
 
@@ -132,7 +128,6 @@ dataAdapter.setDropDownViewResource(R.layout.spinner_color);
                 Intent intent= new Intent(getApplicationContext(), PaymentActivity.class);
                 intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION,payPalConfiguration);
                 intent.putExtra(PaymentActivity.EXTRA_PAYMENT,payPalPayment);
-
                 startActivityForResult(intent,PAYPAL_REQCODE);
             }
         });
@@ -158,9 +153,9 @@ dataAdapter.setDropDownViewResource(R.layout.spinner_color);
             if(requestCode==PAYPAL_REQCODE){
 
                 if(resultCode== Activity.RESULT_OK){
-                    Toast.makeText(getApplicationContext(),"payment successful",Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(),"Payment Successful",Toast.LENGTH_LONG);
                 }
-                else{Toast.makeText(getApplicationContext(),"payment declined",Toast.LENGTH_LONG);}
+                else{Toast.makeText(getApplicationContext(),"Payment Declined",Toast.LENGTH_LONG);}
             }
 
     }

@@ -61,7 +61,7 @@ public class Quote extends Fragment implements AdapterView.OnItemSelectedListene
             public void onClick(View v) {
 
                 rootToDatabase= FirebaseDatabase.getInstance();
-                reference= rootToDatabase.getReference("Quote");
+                reference= rootToDatabase.getReference("Quote ");
 
                 // GEt all values from form
                 String name = qname.getText().toString();
