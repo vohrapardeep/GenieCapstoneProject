@@ -23,21 +23,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".End" />
         <activity android:name=".ui.checkout.Checkout" />
-        <activity android:name=".Five" />
-        <activity android:name=".Four" />
-        <activity android:name=".Three" />
-        <activity android:name=".ui.ServiceOne.One" />
-        <activity android:name=".Two" />
+        <activity android:name=".ui.ServiceProvider.Five" />
+        <activity android:name=".ui.ServiceProvider.Four" />
+        <activity android:name=".ui.ServiceProvider.Three" />
+        <activity android:name=".ui.ServiceProvider.One" />
+        <activity android:name=".ui.ServiceProvider.Two" />
         <activity android:name=".Signup" />
         <activity android:name=".Login" />
-        <activity android:name=".ui.Feedback.Feedback"/>
-        <activity android:name=".ui.Feedback.ThankYoupage"/>
+        <activity android:name=".ui.Feedback.Feedback" />
         <activity
             android:name=".MainActivity"
-            android:label="Genie"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

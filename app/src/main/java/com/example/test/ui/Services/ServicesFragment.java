@@ -11,29 +11,32 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.test.Five;
-import com.example.test.Four;
-import com.example.test.ui.ServiceOne.One;
+import com.example.test.ui.ServiceProvider.Five;
+import com.example.test.ui.ServiceProvider.Four;
+import com.example.test.ui.ServiceProvider.One;
 import com.example.test.R;
-import com.example.test.Three;
-import com.example.test.Two;
+import com.example.test.ui.ServiceProvider.Three;
+import com.example.test.ui.ServiceProvider.Two;
 import com.example.test.ui.Adapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ServicesFragment extends Fragment implements Adapter.OnmyClickListener {
-    public ServicesFragment(){
+
+    public ServicesFragment()
+    {
 // empty constructor required
     }
+
     RecyclerView recyclerView;
     List<ServicesViewModel> itemList;
 
     private ServicesViewModel productViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
-     View root = inflater.inflate(R.layout.fragment_home, container, false);
+            ViewGroup constraint, Bundle savedInstanceState) {
+     View root = inflater.inflate(R.layout.fragment_home, constraint, false);
         recyclerView = root.findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -45,14 +48,12 @@ public class ServicesFragment extends Fragment implements Adapter.OnmyClickListe
     private List<ServicesViewModel> initData() {
         itemList= new ArrayList<>();
         itemList.add(new ServicesViewModel(R.drawable.elec,"Electrician"));
-        itemList.add(new ServicesViewModel(R.drawable.plumber,"Plumber"));
+        itemList.add(new ServicesViewModel(R.drawable.plumber1,"Plumber"));
         itemList.add(new ServicesViewModel(R.drawable.prod1,"Beautician"));
-        itemList.add(new ServicesViewModel(R.drawable.health,"Health Instructor"));
+        itemList.add(new ServicesViewModel(R.drawable.fitness2,"Health Instructor"));
         itemList.add(new ServicesViewModel(R.drawable.constr,"Construction Worker"));
-         return itemList;
+        return itemList;
     }
-
-
 
     @Override
     public void onmyClick(int position) {
@@ -67,7 +68,7 @@ public class ServicesFragment extends Fragment implements Adapter.OnmyClickListe
         if(position==1){
             Intent i = new Intent(getActivity(), Two.class);
             i.putExtra("title2",""+ itemList.get(position).getName());
-            i.putExtra("img2",R.drawable.plumber);
+            i.putExtra("img2",R.drawable.plumber1);
            startActivity(i);
         }
 
@@ -80,7 +81,7 @@ public class ServicesFragment extends Fragment implements Adapter.OnmyClickListe
         if(position==3){
             Intent i = new Intent(getActivity(), Four.class);
             i.putExtra("title4",""+itemList.get(position).getName());
-            i.putExtra("img4",R.drawable.health);
+            i.putExtra("img4",R.drawable.fitness2);
             startActivity(i);
         }
         if(position==4){

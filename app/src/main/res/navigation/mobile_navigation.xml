@@ -5,13 +5,6 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_slideshow">
 
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.test.ui.Gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/activity_checkout" />
-
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.test.ui.Home.HomeFragment"
@@ -42,7 +35,7 @@
         tools:layout="@layout/joinus"/>
 
     <activity
-        android:id="@+id/feedback"
+        android:id="@+id/nav_feedback"
         android:name="com.example.test.ui.Feedback.Feedback"
         android:label="Feedback"
         tools:layout="@layout/activity_feedback"/>

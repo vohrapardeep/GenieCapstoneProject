@@ -37,7 +37,6 @@ import java.util.Locale;
 public class UserLocation extends AppCompatActivity implements LocationListener {
 
     Button btnLocation,btnSpinner;
-    TextView tv_Address;
     Spinner spinner_location;
     LocationManager locationManager;
 
@@ -50,7 +49,6 @@ public class UserLocation extends AppCompatActivity implements LocationListener 
         setContentView(R.layout.activity_user_location);
         btnLocation = findViewById(R.id.btn_location);
         btnSpinner = findViewById(R.id.btnSpinner);
-        tv_Address = findViewById(R.id.tv_address);
         spinner_location = findViewById(R.id.spinner_location);
 
         List<String> cityList = new ArrayList<String>();
@@ -134,21 +132,16 @@ public class UserLocation extends AppCompatActivity implements LocationListener 
 
     @Override
     public void onLocationChanged(Location location) {
-        Toast.makeText(this, "" + location.getLatitude()+"," + location.getLongitude(), Toast.LENGTH_SHORT).show();
-
-
             fd = FirebaseDatabase.getInstance();
             dr= fd.getReference("Location");
 
             try {
                 Geocoder geocoder = new Geocoder(UserLocation.this, Locale.getDefault());
-
-
-                List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                 List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
 
                 String ad = addresses.get(0).getAddressLine(0);
                 String city = addresses.get(0).getLocality();
-                tv_Address.setText(ad);
+
 
                 UserLocationHelperClass userLocationHelperClass = new UserLocationHelperClass(city);
 
@@ -157,9 +150,9 @@ public class UserLocation extends AppCompatActivity implements LocationListener 
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(UserLocation.this, "Location saved", Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(UserLocation.this, "Location saved", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(UserLocation.this, "Location not saved", Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(UserLocation.this, "Location not saved", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

@@ -1,4 +1,4 @@
-package com.example.test.ui.ServiceOne;
+package com.example.test.ui.ServiceProvider;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.test.R;
 import com.example.test.ui.checkout.Checkout;
@@ -22,7 +23,7 @@ import java.util.List;
 
 public class One extends AppCompatActivity {
 
-    TextView txtviewTitle,txtviewPrice;
+    TextView txtviewTitle;
     ImageView img1;
     Button btnCheckout;
     Spinner spinner_category,spinner_SP;
@@ -30,7 +31,7 @@ public class One extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one);
 
@@ -76,7 +77,6 @@ public class One extends AppCompatActivity {
 
         final List<String> choose = new ArrayList<String>();
         choose.add("Choose Service Provider!");
-
 
         //Category Spinner
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, categories_list);
@@ -144,13 +144,24 @@ public class One extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                firebaseDatabase = FirebaseDatabase.getInstance();
-                databaseReference = firebaseDatabase.getReference("ServiceOneCategory");
+                String spin1 = spinner_category.getSelectedItem().toString();
+                String spin2 = spinner_SP.getSelectedItem().toString();
 
-                String category_selected = spinner_category.getSelectedItem().toString();
-                Intent i = new Intent(getApplicationContext(), Checkout.class);
-                i.putExtra("service",category_selected);
-                startActivity(i);
+                if(spin1.equals("Choose Service") || spin2.equals("Choose Service Provider!") || spin1.equals("Other"))
+                {
+                    Toast.makeText(One.this, "Selection is must ! ", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    firebaseDatabase = FirebaseDatabase.getInstance();
+                    databaseReference = firebaseDatabase.getReference("ServiceOneCategory");
+
+                    String category_selected = spinner_category.getSelectedItem().toString();
+                    Intent i = new Intent(getApplicationContext(), Checkout.class);
+                    i.putExtra("service",category_selected);
+                    startActivity(i);
+                }
+
+
             }
         });
     }

@@ -98,6 +98,9 @@ public class Signup extends AppCompatActivity {
                         Intent i = new Intent(getApplicationContext(), Login.class);
                         startActivity(i);
                     }
+                    else{
+                        etEmailid.setError("Account already exists! ");
+                    }
                 }
 
 

@@ -19,12 +19,11 @@ public class ContactUs extends Fragment {
     public ContactUs(){}
 
 
-    EditText fullname,email,contact,message;
+    EditText fullname, email, contact, message;
     Button send;
 
     FirebaseDatabase rootToDatabase;
     DatabaseReference reference;
-//    public String mailmsg;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
