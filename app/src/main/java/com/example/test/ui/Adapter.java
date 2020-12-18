@@ -35,7 +35,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         holder.image.setImageResource(itemList1.get(position).getImage());
         holder.tv.setText(itemList1.get(position).getName());
-        holder.tvPrice.setText(itemList1.get(position).getPrice());
+
     }
 
     @Override
@@ -52,7 +52,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             super(itemView);
             image = itemView.findViewById(R.id.imgItem);
             tv = itemView.findViewById(R.id.nameItem);
-            tvPrice = itemView.findViewById(R.id.txtPrice);
             this.onmyClickListener = onmyClickListener;
 
             itemView.setOnClickListener(this);

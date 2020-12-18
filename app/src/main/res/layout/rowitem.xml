@@ -17,19 +17,8 @@
             <ImageView
                 android:id="@+id/imgItem"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="260dp"
                 android:src="@drawable/ic_launcher_background" />
-
-            <TextView
-                android:id="@+id/txtPrice"
-                android:layout_width="122dp"
-                android:layout_height="45dp"
-                android:layout_gravity="right|top"
-                android:layout_marginBottom="0dp"
-                android:gravity="bottom"
-                android:text="price"
-                android:textSize="22dp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/nameItem"
@@ -38,6 +27,7 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:text="name"
+                android:textColor="#000000"
                 android:textSize="22dp"
                 android:textStyle="bold" />
 

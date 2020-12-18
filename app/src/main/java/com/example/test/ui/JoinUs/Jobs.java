@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,14 +87,39 @@ public class Jobs extends Fragment {
         btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                message.setText("your job application has been sent, You will be contacted shortly!");
-                personName.setText("");
-                emailaddress.setText("");
-                phone.setText("");
+                String name = personName.getText().toString();
+                String email = emailaddress.getText().toString();
+                String phonem =phone.getText().toString();
+                String cat = spinner.getSelectedItem().toString();
+
+
+    if (isNullOrBlank(name)) {
+        personName.setError("Name Required !");
+    } if (isNullOrBlank(email) || emailPatterncheck(email)) {
+        emailaddress.setError("Invalid email");
+    }  if (isNullOrBlank(phonem)) {
+        phone.setError("Phone number required");
+    }  if (isNullOrBlank(cat)) {
+        Toast.makeText(getActivity(), "Select Category!", Toast.LENGTH_SHORT).show();
+    }
+
+                else if(!name.equals("") && !email.equals("") && !phonem.equals("") && !cat.equals("Choose Job")){
+                    JobsHelper jobsHelper = new JobsHelper(name,email,phonem,cat);
+                    databaseReference.setValue(jobsHelper);
+
+    Toast.makeText(getActivity(), "You will be contacted shortly!", Toast.LENGTH_SHORT).show();
+                    personName.setText("");
+                    emailaddress.setText("");
+                    phone.setText("");
+
+
+                }
+
 
             }
         });
-        return root;}
+        return root;
+    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -144,7 +170,18 @@ public class Jobs extends Fragment {
         Intent i = new Intent();
         i.setType("application/pdf");
         i.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(i, "Select Resume pdf"), 1);
+        startActivityForResult(Intent.createChooser(i, "Select Resume: pdf only"), 1);
+    }
+    boolean isNullOrBlank(String s) {
+        return (s == null || s.trim().equals(""));
+    }
+
+    private boolean emailPatterncheck(String email) {
+        if (email == null) {
+            return false;
+        } else {
+            return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        }
     }
 
 }

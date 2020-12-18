@@ -7,13 +7,35 @@ import androidx.lifecycle.ViewModel;
 public class HomeModel extends ViewModel {
 
     private MutableLiveData<String> mText;
+    int image;
+    String name;
 
-    public HomeModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is Checkout Activity");
+    public HomeModel(int image, String name) {
+        this.image = image;
+        this.name = name;
     }
 
-    public LiveData<String> getText() {
+    public MutableLiveData<String> getmText() {
         return mText;
+    }
+
+    public void setmText(MutableLiveData<String> mText) {
+        this.mText = mText;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

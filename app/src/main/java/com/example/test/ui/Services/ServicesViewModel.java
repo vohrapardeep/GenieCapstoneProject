@@ -8,15 +8,9 @@ public class ServicesViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
     int image;
-    String name,price;
+    String name;
 
-    public String getPrice() {
-        return price;
-    }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
 
     public int getImage() {
         return image;
@@ -34,10 +28,10 @@ public class ServicesViewModel extends ViewModel {
         this.name = name;
     }
 
-    public ServicesViewModel(int image, String name, String price) {
+    public ServicesViewModel(int image, String name) {
         this.image = image;
         this.name = name;
-        this.price = price;
+
         mText = new MutableLiveData<>();
         mText.setValue("This is home Activity");
     }

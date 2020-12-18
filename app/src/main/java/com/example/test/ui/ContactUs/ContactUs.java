@@ -19,12 +19,11 @@ public class ContactUs extends Fragment {
     public ContactUs(){}
 
 
-    EditText fullname,email,contact,message;
+    EditText fullname, email, contact, message;
     Button send;
 
     FirebaseDatabase rootToDatabase;
     DatabaseReference reference;
-//    public String mailmsg;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -67,7 +66,7 @@ public class ContactUs extends Fragment {
                 }
                 if(isNullOrBlank(message1))
                 {
-                    message.setError("Enter Your Query");
+                    message.setError("Enter Your Query!");
                 }
                 if(!emailPatterncheck(email1))
                 {
@@ -83,16 +82,6 @@ public class ContactUs extends Fragment {
 
 
 
-
-
-
-//
-//                mailmsg= message.getText().toString() +"\n Contact Number: " + contact.getText().toString() + "\n Email Id:"+ email.getText().toString();
-//
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:Supadhyay3131@conestogac.on.ca"));
-//                intent.putExtra(Intent.EXTRA_SUBJECT,"Contact Us Inquiry");
-//                intent.putExtra(Intent.EXTRA_TEXT,mailmsg);
-//                startActivity(intent);
             }
         });
         return root;

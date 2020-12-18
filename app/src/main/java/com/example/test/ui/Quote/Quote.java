@@ -7,6 +7,7 @@ import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -41,6 +42,7 @@ public class Quote extends Fragment implements AdapterView.OnItemSelectedListene
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         final View root = inflater.inflate(R.layout.quote, container, false);
+
 
         qname=root.findViewById(R.id.qname);
         qemail=root.findViewById(R.id.qemail);

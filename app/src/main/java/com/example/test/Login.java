@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
                             final ProgressDialog progressDialog = new ProgressDialog(Login.this,
                                     R.style.Theme_AppCompat_DayNight_Dialog_Alert);
                             progressDialog.setIndeterminate(true);
-                            progressDialog.setMessage("LOGGING INTO YOUR ACCOUNT...");
+                            progressDialog.setMessage("Logging in...");
                             progressDialog.show();
                             new android.os.Handler().postDelayed(
                                     new Runnable() {
@@ -70,7 +70,7 @@ public class Login extends AppCompatActivity {
                                             SuccessfulLogin();
                                             progressDialog.dismiss();
                                         }
-                                    }, 4500);
+                                    }, 3500);
 
                             if (i == 1) {
 
@@ -83,10 +83,14 @@ public class Login extends AppCompatActivity {
                                     e.printStackTrace();
                                 }
                                 Intent i1 = new Intent(Login.this, MainActivity.class);
+                                i1.putExtra("email",em);
                                 startActivity(i1);
                             } else {
                                 etUsername.setError("Check Username");
                                 etPassword.setError("Check Password");
+                                Intent inot = new Intent(getApplicationContext(), Login.class);
+                                startActivity(inot);
+
                             }
                         }
 
