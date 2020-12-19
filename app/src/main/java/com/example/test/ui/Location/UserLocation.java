@@ -104,10 +104,7 @@ public class UserLocation extends AppCompatActivity implements LocationListener 
 
             }
         });
-
-
-
-    }
+   }
 
 
     private void getUserLocation() {
